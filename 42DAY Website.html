@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TODAY $42DAY — The meme that never quits. Auto Earn. Someday is TODAY.">
+<title>TODAY | $42DAY — Someday Is TODAY</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;0,900;1,900&family=Barlow+Condensed:ital,wght@0,900;1,900&family=DM+Mono:wght@400;500&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sun:#f7c948;--orange:#f05e23;--teal:#2db89e;--sky:#4ab8e8;--grass:#3aaa60;
+  --black:#060810;--dark:#0c0e18;--pink:#ff44cc;--blue:#00aaff;--purple:#8844ff;
+  --white:#ffffff;--grey:#aaaacc;--dimgrey:#444466;--green:#00cc66;--red:#ff3366;
+  --ticker:linear-gradient(135deg,#ffffff,#eeddff,#ff88dd,#ff44bb);
+  --neon:linear-gradient(135deg,#00aaff,#8844ff,#ff44cc);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px;}
+
+@keyframes ringspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes ringpulse{0%,100%{opacity:.6;}50%{opacity:1;}}
+@keyframes tickerbreathe{
+  0%,100%{filter:drop-shadow(0 0 8px #cc88ffcc) drop-shadow(0 0 24px #8844ff88);}
+  50%{filter:drop-shadow(0 0 16px #ddaaff) drop-shadow(0 0 48px #aa66ffcc);}
+}
+@keyframes heartbeat{0%,100%{transform:scale(1);}15%{transform:scale(1.35);}30%{transform:scale(1);}45%{transform:scale(1.2);}60%{transform:scale(1);}}
+@keyframes jog{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-3px) rotate(2deg);}}
+@keyframes subtitlefade{0%,100%{opacity:.5;}50%{opacity:.9;}}
+@keyframes pricetick{0%,85%,100%{opacity:1;}90%{opacity:.5;}95%{opacity:1;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+@keyframes glowpulse{0%,100%{box-shadow:0 0 20px #8844ff44;}50%{box-shadow:0 0 50px #8844ffaa,0 0 100px #ff44cc44;}}
+@keyframes fadeup{from{opacity:0;transform:translateY(50px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes signbob{0%,100%{transform:rotate(-3deg) translateY(0);}50%{transform:rotate(3deg) translateY(-4px);}}
+@keyframes crowdmarch{0%,100%{transform:translateX(0);}50%{transform:translateX(4px);}}
+@keyframes transitionpulse{
+  0%,100%{text-shadow:0 0 40px rgba(247,201,72,.8),0 0 80px rgba(247,201,72,.4);}
+  50%{text-shadow:0 0 80px rgba(255,255,255,1),0 0 160px rgba(247,201,72,.8);}
+}
+@keyframes starpulse{0%,100%{opacity:.2;}50%{opacity:.9;}}
+@keyframes neonflicker{0%,95%,100%{opacity:1;}96%{opacity:.8;}98%{opacity:.9;}}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:14px 40px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(252,234,187,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(240,94,35,.2);
+  transition:background .6s,border-color .6s;
+}
+nav.dark{background:rgba(6,8,16,.95);border-bottom-color:rgba(136,68,255,.2);}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;letter-spacing:2px;color:var(--orange);transition:color .5s;}
+nav.dark .nav-logo{background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--orange);text-decoration:none;transition:color .3s;}
+nav.dark .nav-links a{color:var(--grey);}
+nav.dark .nav-links a:hover{color:var(--white);}
+.nav-links a:hover{color:#000;}
+.nav-cta{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--white);background:var(--orange);border:none;padding:10px 22px;border-radius:100px;cursor:pointer;text-decoration:none;transition:background .5s,transform .2s;font-weight:700;}
+nav.dark .nav-cta{background:var(--neon);animation:glowpulse 3s ease-in-out infinite;}
+.nav-cta:hover{transform:scale(1.05);opacity:.9;}
+@media(max-width:768px){.nav-links{display:none;}nav{padding:12px 20px;}}
+
+/* ═══ LIBERATION HERO ═══ */
+#liberation{
+  min-height:100vh;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#87ceeb 0%,#b8e4f7 12%,#fceabb 38%,#f8b84e 62%,#f05e23 82%,#d94a1a 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:100px 40px 80px;
+}
+/* Sun rays */
+#liberation::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-conic-gradient(from 0deg at 50% 0%,rgba(255,255,255,.06) 0deg 8deg,transparent 8deg 18deg);
+  pointer-events:none;z-index:0;
+}
+.bunting{position:absolute;top:64px;left:0;right:0;z-index:5;pointer-events:none;}
+.skyline{position:absolute;bottom:0;left:0;right:0;height:40%;pointer-events:none;z-index:1;}
+.crowd-svg{position:absolute;bottom:0;left:0;right:0;height:50%;z-index:2;pointer-events:none;overflow:hidden;animation:crowdmarch 2s ease-in-out infinite;}
+.lib-content{position:relative;z-index:10;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;}
+.lib-eyebrow{background:rgba(255,255,255,.92);color:var(--orange);font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:5px;text-transform:uppercase;padding:8px 24px;border-radius:100px;animation:bounce 3s ease-in-out infinite;box-shadow:0 4px 20px rgba(240,94,35,.3);}
+.lib-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(3.5rem,12vw,9rem);line-height:.88;letter-spacing:-2px;color:var(--white);text-shadow:4px 4px 0 rgba(0,0,0,.15),0 0 40px rgba(247,201,72,.5);animation:fadeup .8s ease both;}
+.lib-title .gold{color:var(--sun);display:block;text-shadow:4px 4px 0 rgba(0,0,0,.2),0 0 60px rgba(247,201,72,.8);}
+.lib-sub{font-family:'Barlow',sans-serif;font-weight:900;font-size:clamp(1rem,3vw,1.6rem);color:rgba(255,255,255,.95);letter-spacing:4px;text-transform:uppercase;text-shadow:2px 2px 8px rgba(0,0,0,.3);animation:fadeup .8s ease .2s both;}
+.signs-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeup .8s ease .4s both;}
+.sign{background:var(--white);color:var(--orange);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.85rem;letter-spacing:2px;padding:8px 18px;border-radius:4px;box-shadow:3px 3px 0 rgba(0,0,0,.15);animation:signbob 2s ease-in-out infinite;text-transform:uppercase;}
+.sign:nth-child(2){animation-delay:.3s;background:var(--sun);color:#000;}
+.sign:nth-child(3){animation-delay:.6s;background:var(--teal);color:#fff;}
+.sign:nth-child(4){animation-delay:.2s;background:var(--orange);color:#fff;}
+.sign:nth-child(5){animation-delay:.5s;background:var(--grass);color:#fff;}
+.lib-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeup .8s ease .6s both;}
+.btn-lib{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:3px;text-transform:uppercase;padding:18px 48px;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .2s,box-shadow .2s;}
+.btn-lib.primary{color:#000;background:var(--sun);border:none;box-shadow:4px 4px 0 rgba(0,0,0,.2);}
+.btn-lib.primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(0,0,0,.2);}
+.btn-lib.secondary{color:#fff;background:transparent;border:3px solid rgba(255,255,255,.7);}
+.btn-lib.secondary:hover{background:rgba(255,255,255,.15);}
+
+/* ═══ PILLARS ═══ */
+#pillars{background:linear-gradient(180deg,#d94a1a,#8b2a0a);padding:80px 40px;}
+.pillars-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.pillar{text-align:center;padding:40px 24px;border:2px solid rgba(247,201,72,.3);border-radius:16px;background:rgba(0,0,0,.2);transition:border-color .3s,transform .3s;}
+.pillar:hover{border-color:var(--sun);transform:translateY(-6px);}
+.pillar-icon{font-size:3rem;margin-bottom:14px;display:block;animation:bounce 3s ease-in-out infinite;}
+.pillar:nth-child(2) .pillar-icon{animation-delay:.4s;}
+.pillar:nth-child(3) .pillar-icon{animation-delay:.8s;}
+.pillar-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:var(--sun);letter-spacing:2px;margin-bottom:12px;text-transform:uppercase;}
+.pillar-body{font-size:.95rem;line-height:1.6;color:rgba(255,255,255,.75);}
+
+/* ═══ MANIFESTO LIB ═══ */
+#manifesto-lib{background:linear-gradient(180deg,#8b2a0a,#5a1a06);padding:100px 40px;}
+.mlib-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.mlib-text h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.5rem,6vw,4rem);color:var(--white);line-height:1;letter-spacing:-1px;margin-bottom:32px;}
+.mlib-text h2 em{font-style:italic;color:var(--sun);}
+.yn-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.yn-col h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.5rem;margin-bottom:16px;line-height:1;}
+.yn-yes h3{color:#5ddb8a;} .yn-no h3{color:#ff6688;}
+.yn-items{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.yn-items li{font-size:.95rem;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start;line-height:1.3;}
+.yn-yes li::before{content:'✓';color:#5ddb8a;font-weight:900;flex-shrink:0;}
+.yn-no  li::before{content:'✗';color:#ff6688;font-weight:900;flex-shrink:0;}
+.watch-lib{display:flex;justify-content:center;align-items:center;animation:float 6s ease-in-out infinite;filter:drop-shadow(0 20px 60px rgba(136,68,255,.5)) drop-shadow(0 0 120px rgba(255,68,204,.3));}
+
+/* ═══ TRANSITION ═══ */
+#transition{
+  position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  background:linear-gradient(180deg,#5a1a06 0%,#2a0d0a 20%,#120810 50%,#080a14 80%,#060810 100%);
+}
+.stars{position:absolute;inset:0;pointer-events:none;}
+.star{position:absolute;border-radius:50%;background:#fff;animation:starpulse 3s ease-in-out infinite;}
+.light-beam{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(247,201,72,.35),transparent);animation:subtitlefade 4s ease-in-out infinite;}
+.light-beam.top{top:28%} .light-beam.bottom{bottom:28%}
+.trans-content{position:relative;z-index:2;text-align:center;padding:40px 20px;}
+.trans-eye{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:8px;text-transform:uppercase;color:rgba(247,201,72,.5);margin-bottom:40px;animation:subtitlefade 4s ease-in-out infinite;}
+.trans-main{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(3rem,14vw,11rem);line-height:.88;letter-spacing:-3px;}
+.trans-ghost{display:block;font-family:'Cinzel',serif;font-weight:600;font-size:.38em;letter-spacing:14px;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.2);margin-bottom:10px;}
+.trans-big{display:block;background:linear-gradient(135deg,#f7c948,#ffffff,#ff88dd,#ffffff,#f7c948);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:transitionpulse 4s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(247,201,72,.6));}
+.trans-ticker{display:block;font-size:.5em;background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(255,68,204,.5));letter-spacing:6px;margin-top:8px;}
+.trans-sub{margin-top:48px;font-family:'Cinzel',serif;font-size:clamp(.9rem,2vw,1.2rem);color:rgba(170,170,204,.7);letter-spacing:6px;animation:subtitlefade 5s ease-in-out infinite;}
+
+/* ═══ DARK WORLD ═══ */
+.dark-world{background:var(--black);color:var(--white);position:relative;}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(136,68,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(136,68,255,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+.ds{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.ds-center{text-align:center;}
+.ds-full{padding:100px 40px;position:relative;z-index:1;max-width:100%;}
+.dv{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(136,68,255,.4),transparent);}
+.d-eye{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:5px;text-transform:uppercase;color:var(--purple);margin-bottom:14px;display:block;animation:neonflicker 8s infinite;}
+.d-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1;letter-spacing:-1px;margin-bottom:22px;color:var(--white);}
+.d-title .a{background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.d-body{font-size:1.05rem;line-height:1.7;color:var(--grey);max-width:580px;}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;position:relative;}
+.steps::before{content:'';position:absolute;top:52px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--purple),var(--pink),transparent);}
+.step{background:rgba(8,10,18,.8);border:1px solid rgba(136,68,255,.15);border-radius:20px;padding:40px 28px;position:relative;z-index:1;transition:border-color .3s,transform .3s;}
+.step:hover{border-color:rgba(255,68,204,.4);transform:translateY(-6px);}
+.step-n{width:56px;height:56px;border-radius:50%;background:var(--neon);display:flex;align-items:center;justify-content:center;font-family:'Barlow',sans-serif;font-weight:900;font-size:1.2rem;color:#000;margin:0 auto 22px;animation:glowpulse 3s ease-in-out infinite;}
+.step-t{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:1px;margin-bottom:10px;color:var(--white);}
+.step-b{font-size:.95rem;line-height:1.6;color:var(--dimgrey);}
+
+/* Milestones */
+.milestones{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px;}
+.ms{background:rgba(8,10,18,.9);border:1px solid rgba(136,68,255,.2);border-radius:20px;padding:36px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;}
+.ms::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--neon);}
+.ms:hover{border-color:rgba(255,68,204,.4);transform:translateY(-4px);}
+.ms-mo{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;}
+.ms-pct{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:4rem;background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;}
+.ms-lbl{font-size:.9rem;color:var(--dimgrey);line-height:1.4;}
+
+/* Auto earn */
+.ae{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ae-vis{display:flex;align-items:center;justify-content:center;animation:float 6s ease-in-out infinite;}
+.ae-donut{width:280px;height:280px;}
+
+/* Security */
+.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px;}
+.sec-card{background:rgba(0,170,255,.05);border:1px solid rgba(0,170,255,.2);border-radius:20px;padding:40px 26px;transition:border-color .3s,transform .3s;}
+.sec-card:hover{border-color:rgba(0,170,255,.5);transform:translateY(-4px);}
+.sec-icon{font-size:2.5rem;margin-bottom:14px;display:block;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.3rem;color:var(--white);margin-bottom:10px;letter-spacing:1px;}
+.sec-body{font-size:.9rem;line-height:1.6;color:var(--dimgrey);}
+
+/* Bot */
+.bot-card{background:rgba(8,10,18,.95);border:1px solid rgba(255,68,204,.3);border-radius:24px;padding:60px;position:relative;overflow:hidden;animation:glowpulse 4s ease-in-out infinite;}
+.bot-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--neon);}
+.bot-hl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:22px;color:var(--white);line-height:1.1;}
+.bot-hl .a{background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.bot-body{font-size:1.05rem;line-height:1.7;color:var(--grey);margin-bottom:26px;}
+.bot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;}
+.bot-item{background:rgba(136,68,255,.08);border:1px solid rgba(136,68,255,.2);border-radius:12px;padding:18px;text-align:center;}
+.bot-ico{font-size:1.8rem;margin-bottom:6px;display:block;}
+.bot-lbl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:2px;color:var(--grey);text-transform:uppercase;}
+
+/* Calc */
+.calc-box{background:rgba(8,10,18,.9);border:1px solid rgba(136,68,255,.2);border-radius:24px;padding:48px;margin-top:48px;}
+.calc-lbl{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--dimgrey);margin-bottom:12px;display:block;text-align:left;}
+.calc-wrap{position:relative;margin-bottom:28px;}
+.calc-wrap span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-family:'Barlow',sans-serif;font-weight:700;font-size:1.2rem;color:var(--purple);}
+.calc-in{width:100%;background:rgba(136,68,255,.08);border:1px solid rgba(136,68,255,.3);border-radius:12px;padding:17px 18px 17px 38px;font-family:'Barlow',sans-serif;font-weight:700;font-size:1.4rem;color:var(--white);outline:none;transition:border-color .3s;}
+.calc-in:focus{border-color:var(--purple);}
+.calc-in::placeholder{color:var(--dimgrey);}
+.calc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;}
+.calc-item{background:rgba(136,68,255,.06);border:1px solid rgba(136,68,255,.15);border-radius:12px;padding:18px 12px;text-align:center;}
+.calc-val{font-family:'Barlow',sans-serif;font-weight:900;font-size:1.3rem;background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
+.calc-lbl2{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:2px;color:var(--dimgrey);text-transform:uppercase;}
+.calc-note{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:2px;color:var(--dimgrey);text-align:center;}
+
+/* Tokenomics */
+.tok-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;}
+.tok{background:rgba(8,10,18,.9);border:1px solid rgba(136,68,255,.15);border-radius:20px;padding:30px 18px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
+.tok::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--neon);transform:scaleX(0);transition:transform .3s;}
+.tok:hover{border-color:rgba(136,68,255,.4);transform:translateY(-4px);}
+.tok:hover::after{transform:scaleX(1);}
+.tok-pct{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3rem;background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px;}
+.tok-name{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--grey);margin-bottom:6px;}
+.tok-amt{font-size:.8rem;color:var(--dimgrey);}
+.tok-sup{margin-top:36px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:3px;color:var(--dimgrey);text-transform:uppercase;}
+.tok-sup strong{color:var(--white);font-family:'Barlow',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0;}
+
+/* Roadmap */
+.rm-track{position:relative;margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.rm-track::before{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink),var(--purple));}
+.rm-item{position:relative;z-index:1;}
+.rm-dot{width:56px;height:56px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:1px;}
+.rm-dot.done{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;animation:glowpulse 3s ease-in-out infinite;}
+.rm-dot.active{background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;animation:glowpulse 2s ease-in-out infinite;}
+.rm-dot.pending{background:rgba(136,68,255,.1);border:1px solid rgba(136,68,255,.3);color:var(--dimgrey);}
+.rm-ph{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--purple);margin-bottom:6px;}
+.rm-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:var(--white);margin-bottom:8px;}
+.rm-items{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.rm-items li{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:1px;color:var(--dimgrey);line-height:1.4;}
+
+/* Buttons */
+.btn-primary{font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:#000;background:var(--neon);border:none;padding:15px 38px;border-radius:100px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .2s,opacity .2s;animation:glowpulse 3s ease-in-out infinite;font-weight:700;}
+.btn-primary:hover{transform:scale(1.05);opacity:.9;}
+
+/* Footer */
+footer{border-top:1px solid rgba(136,68,255,.2);padding:60px 40px 40px;background:var(--black);}
+.ft-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:56px;}
+.ft-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;background:var(--ticker);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;display:block;}
+.ft-p{font-size:.9rem;line-height:1.6;color:var(--dimgrey);max-width:300px;margin-bottom:22px;}
+.ft-socials{display:flex;gap:10px;}
+.ft-soc{width:40px;height:40px;border-radius:50%;border:1px solid rgba(136,68,255,.3);display:flex;align-items:center;justify-content:center;color:var(--grey);text-decoration:none;font-family:'DM Mono',monospace;font-size:.62rem;transition:border-color .3s,color .3s,background .3s;}
+.ft-soc:hover{border-color:var(--purple);color:var(--white);background:rgba(136,68,255,.1);}
+.ft-col h4{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--purple);margin-bottom:18px;}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ft-col a{font-size:.9rem;color:var(--dimgrey);text-decoration:none;transition:color .3s;}
+.ft-col a:hover{color:var(--white);}
+.ft-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:36px;border-top:1px solid rgba(136,68,255,.1);flex-wrap:wrap;gap:14px;}
+.ft-cr{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:2px;color:var(--dimgrey);}
+.ft-disc{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:1px;color:rgba(100,100,120,.5);max-width:500px;line-height:1.6;text-align:right;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Responsive */
+@media(max-width:900px){
+  .pillars-inner,.mlib-inner,.ae,.steps,.milestones,.sec-grid,.bot-grid,.calc-row,.tok-grid,.rm-track,.ft-inner{grid-template-columns:1fr;}
+  .yn-grid{grid-template-columns:1fr;}
+  .steps::before,.rm-track::before{display:none;}
+  .tok-grid{grid-template-columns:repeat(2,1fr);}
+  .bot-card{padding:36px 22px;}
+  .ft-bottom{flex-direction:column;}
+  .ft-disc{text-align:left;}
+  .lib-title{font-size:clamp(3rem,16vw,6rem);}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <span class="nav-logo">TODAY · $42DAY</span>
+  <ul class="nav-links">
+    <li><a href="#liberation">Home</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#unlock">Unlock</a></li>
+    <li><a href="#tokenomics">Tokenomics</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+  <a href="https://pump.fun" target="_blank" class="nav-cta">Invest NOW</a>
+</nav>
+
+<!-- ═══ LIBERATION HERO ═══ -->
+<section id="liberation">
+
+  <!-- Bunting -->
+  <svg class="bunting" viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <line x1="0" y1="4" x2="1440" y2="4" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+    <g>
+      <polygon points="30,4 54,4 42,34" fill="#f7c948"/>
+      <polygon points="70,4 94,4 82,34" fill="#f05e23"/>
+      <polygon points="110,4 134,4 122,34" fill="#2db89e"/>
+      <polygon points="150,4 174,4 162,34" fill="#fff" opacity=".85"/>
+      <polygon points="190,4 214,4 202,34" fill="#3aaa60"/>
+      <polygon points="230,4 254,4 242,34" fill="#f7c948"/>
+      <polygon points="270,4 294,4 282,34" fill="#f05e23"/>
+      <polygon points="310,4 334,4 322,34" fill="#4ab8e8"/>
+      <polygon points="350,4 374,4 362,34" fill="#f7c948"/>
+      <polygon points="390,4 414,4 402,34" fill="#2db89e"/>
+      <polygon points="430,4 454,4 442,34" fill="#f05e23"/>
+      <polygon points="470,4 494,4 482,34" fill="#fff" opacity=".85"/>
+      <polygon points="510,4 534,4 522,34" fill="#3aaa60"/>
+      <polygon points="550,4 574,4 562,34" fill="#f7c948"/>
+      <polygon points="590,4 614,4 602,34" fill="#f05e23"/>
+      <polygon points="630,4 654,4 642,34" fill="#4ab8e8"/>
+      <polygon points="670,4 694,4 682,34" fill="#f7c948"/>
+      <polygon points="710,4 734,4 722,34" fill="#2db89e"/>
+      <polygon points="750,4 774,4 762,34" fill="#f05e23"/>
+      <polygon points="790,4 814,4 802,34" fill="#fff" opacity=".85"/>
+      <polygon points="830,4 854,4 842,34" fill="#f7c948"/>
+      <polygon points="870,4 894,4 882,34" fill="#3aaa60"/>
+      <polygon points="910,4 934,4 922,34" fill="#f05e23"/>
+      <polygon points="950,4 974,4 962,34" fill="#4ab8e8"/>
+      <polygon points="990,4 1014,4 1002,34" fill="#f7c948"/>
+      <polygon points="1030,4 1054,4 1042,34" fill="#2db89e"/>
+      <polygon points="1070,4 1094,4 1082,34" fill="#f05e23"/>
+      <polygon points="1110,4 1134,4 1122,34" fill="#fff" opacity=".85"/>
+      <polygon points="1150,4 1174,4 1162,34" fill="#f7c948"/>
+      <polygon points="1190,4 1214,4 1202,34" fill="#3aaa60"/>
+      <polygon points="1230,4 1254,4 1242,34" fill="#f05e23"/>
+      <polygon points="1270,4 1294,4 1282,34" fill="#4ab8e8"/>
+      <polygon points="1310,4 1334,4 1322,34" fill="#f7c948"/>
+      <polygon points="1350,4 1374,4 1362,34" fill="#2db89e"/>
+      <polygon points="1390,4 1414,4 1402,34" fill="#f05e23"/>
+    </g>
+  </svg>
+
+  <!-- City skyline -->
+  <svg class="skyline" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice">
+    <g fill="rgba(0,0,0,.22)">
+      <rect x="0" y="160" width="80" height="140"/><rect x="10" y="120" width="20" height="40"/>
+      <rect x="90" y="100" width="60" height="200"/><rect x="110" y="80" width="14" height="20"/>
+      <rect x="160" y="140" width="50" height="160"/><rect x="220" y="80" width="70" height="220"/>
+      <rect x="248" y="60" width="14" height="20"/><rect x="300" y="120" width="55" height="180"/>
+      <rect x="365" y="90" width="80" height="210"/><rect x="395" y="70" width="18" height="20"/>
+      <rect x="455" y="150" width="45" height="150"/><rect x="510" y="100" width="65" height="200"/>
+      <rect x="535" y="80" width="14" height="20"/><rect x="585" y="60" width="90" height="240"/>
+      <rect x="620" y="40" width="16" height="20"/><rect x="685" y="110" width="55" height="190"/>
+      <rect x="750" y="90" width="70" height="210"/><rect x="778" y="70" width="14" height="20"/>
+      <rect x="830" y="140" width="50" height="160"/><rect x="890" y="80" width="75" height="220"/>
+      <rect x="918" y="60" width="16" height="20"/><rect x="975" y="120" width="55" height="180"/>
+      <rect x="1040" y="100" width="65" height="200"/><rect x="1115" y="70" width="80" height="230"/>
+      <rect x="1143" y="50" width="18" height="20"/><rect x="1205" y="130" width="50" height="170"/>
+      <rect x="1265" y="90" width="70" height="210"/><rect x="1345" y="110" width="95" height="190"/>
+      <ellipse cx="400" cy="300" rx="300" ry="80"/><ellipse cx="1100" cy="300" rx="320" ry="90"/>
+    </g>
+  </svg>
+
+  <!-- Crowd -->
+  <svg class="crowd-svg" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice">
+    <g fill="rgba(0,0,0,.35)">
+      <ellipse cx="60" cy="340" rx="20" ry="60"/><ellipse cx="60" cy="270" rx="14" ry="14"/>
+      <rect x="40" y="290" width="8" height="30" transform="rotate(-20,44,290)"/>
+      <ellipse cx="130" cy="330" rx="22" ry="65"/><ellipse cx="130" cy="255" rx="16" ry="16"/>
+      <rect x="108" y="275" width="8" height="35" transform="rotate(25,112,275)"/>
+      <ellipse cx="200" cy="345" rx="18" ry="55"/><ellipse cx="200" cy="278" rx="13" ry="13"/>
+      <ellipse cx="260" cy="335" rx="20" ry="60"/><ellipse cx="260" cy="265" rx="14" ry="14"/>
+      <rect x="272" y="280" width="8" height="35" transform="rotate(35,276,280)"/>
+      <ellipse cx="330" cy="340" rx="22" ry="62"/><ellipse cx="330" cy="268" rx="15" ry="15"/>
+      <ellipse cx="400" cy="330" rx="19" ry="58"/><ellipse cx="400" cy="262" rx="13" ry="13"/>
+      <rect x="380" y="280" width="8" height="30" transform="rotate(20,384,280)"/>
+      <ellipse cx="470" cy="345" rx="21" ry="60"/><ellipse cx="470" cy="275" rx="15" ry="15"/>
+      <ellipse cx="540" cy="335" rx="20" ry="62"/><ellipse cx="540" cy="263" rx="14" ry="14"/>
+      <rect x="520" y="283" width="8" height="35" transform="rotate(-25,524,283)"/>
+      <ellipse cx="610" cy="340" rx="22" ry="65"/><ellipse cx="610" cy="265" rx="16" ry="16"/>
+      <rect x="590" y="285" width="8" height="30" transform="rotate(30,594,285)"/>
+      <rect x="622" y="278" width="8" height="40" transform="rotate(-15,626,278)"/>
+      <ellipse cx="680" cy="332" rx="19" ry="58"/><ellipse cx="680" cy="264" rx="13" ry="13"/>
+      <ellipse cx="750" cy="342" rx="21" ry="62"/><ellipse cx="750" cy="270" rx="15" ry="15"/>
+      <rect x="730" y="290" width="8" height="32" transform="rotate(20,734,290)"/>
+      <ellipse cx="820" cy="336" rx="20" ry="60"/><ellipse cx="820" cy="266" rx="14" ry="14"/>
+      <ellipse cx="890" cy="345" rx="22" ry="63"/><ellipse cx="890" cy="272" rx="16" ry="16"/>
+      <rect x="870" y="292" width="8" height="35" transform="rotate(-20,874,292)"/>
+      <ellipse cx="960" cy="338" rx="19" ry="59"/><ellipse cx="960" cy="269" rx="13" ry="13"/>
+      <rect x="940" y="287" width="8" height="30" transform="rotate(25,944,287)"/>
+      <ellipse cx="1030" cy="343" rx="21" ry="61"/><ellipse cx="1030" cy="272" rx="15" ry="15"/>
+      <ellipse cx="1100" cy="335" rx="20" ry="60"/><ellipse cx="1100" cy="265" rx="14" ry="14"/>
+      <rect x="1080" y="285" width="8" height="33" transform="rotate(-18,1084,285)"/>
+      <ellipse cx="1170" cy="340" rx="22" ry="64"/><ellipse cx="1170" cy="266" rx="16" ry="16"/>
+      <rect x="1152" y="284" width="8" height="38" transform="rotate(30,1156,284)"/>
+      <ellipse cx="1240" cy="336" rx="19" ry="58"/><ellipse cx="1240" cy="268" rx="13" ry="13"/>
+      <ellipse cx="1310" cy="344" rx="21" ry="62"/><ellipse cx="1310" cy="272" rx="15" ry="15"/>
+      <ellipse cx="1380" cy="338" rx="20" ry="60"/><ellipse cx="1380" cy="268" rx="14" ry="14"/>
+      <rect x="1360" y="288" width="8" height="32" transform="rotate(-22,1364,288)"/>
+    </g>
+  </svg>
+
+  <div class="lib-content">
+    <span class="lib-eyebrow">🌅 Solana · $42DAY · The Movement</span>
+    <h1 class="lib-title">
+      THE MEME
+      <span class="gold">THAT NEVER</span>
+      QUITS
+    </h1>
+    <p class="lib-sub">Auto Earn · Monthly Rewards · Financial Freedom</p>
+    <div class="signs-row">
+      <div class="sign">Rise Up!</div>
+      <div class="sign">42DAY</div>
+      <div class="sign">Auto Earn</div>
+      <div class="sign">NOW!</div>
+      <div class="sign">Freedom!</div>
+    </div>
+    <div class="lib-btns">
+      <a href="https://pump.fun" target="_blank" class="btn-lib primary">Invest in TODAY</a>
+      <a href="https://t.me/today42day" target="_blank" class="btn-lib secondary">Join the Movement</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PILLARS ═══ -->
+<div id="pillars" class="reveal">
+  <div class="pillars-inner">
+    <div class="pillar">
+      <span class="pillar-icon">💰</span>
+      <div class="pillar-title">Auto Earn</div>
+      <p class="pillar-body">70% of every investment auto-earns monthly rewards from day one. No setup. No effort. TODAY works while you sleep.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🔓</span>
+      <div class="pillar-title">Progressive Unlock</div>
+      <p class="pillar-body">30% liquid immediately. The rest unlocks at 3, 6 and 12 months. Patience is rewarded. The longer you hold the more you earn.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">🛡️</span>
+      <div class="pillar-title">Built Secure</div>
+      <p class="pillar-body">Clean contract. Immutable vault. No rug mechanics. TODAY passes honeypot detection cleanly. Your investment is always yours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MANIFESTO ═══ -->
+<div id="manifesto-lib" class="reveal">
+  <div class="mlib-inner">
+    <div class="mlib-text">
+      <h2>TODAY is the day<br>you say <em>YES.</em><br>And mean it.</h2>
+      <div class="yn-grid">
+        <div class="yn-col yn-yes">
+          <h3>YES.</h3>
+          <ul class="yn-items">
+            <li>Yes to profits</li>
+            <li>Yes to Auto Earn</li>
+            <li>Yes to security</li>
+            <li>Yes to monthly rewards</li>
+            <li>Yes to financial freedom</li>
+            <li>Yes to your future</li>
+          </ul>
+        </div>
+        <div class="yn-col yn-no">
+          <h3>NO.</h3>
+          <ul class="yn-items">
+            <li>No to rug pulls</li>
+            <li>No to scammers</li>
+            <li>No to false hope</li>
+            <li>No to pump and dump</li>
+            <li>No to waiting for someday</li>
+            <li>No to missing out</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE WATCH -->
+    <div class="watch-lib">
+      <svg width="320" height="320" viewBox="0 0 480 480" style="overflow:visible">
+        <defs>
+          <radialGradient id="wf" cx="48%" cy="42%" r="55%">
+            <stop offset="0%" stop-color="#141820"/><stop offset="50%" stop-color="#0e1218"/><stop offset="100%" stop-color="#080a0e"/>
+          </radialGradient>
+          <linearGradient id="wb" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2a2e38"/><stop offset="100%" stop-color="#0c0e14"/>
+          </linearGradient>
+          <linearGradient id="wnr" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00aaff"/><stop offset="25%" stop-color="#8844ff"/>
+            <stop offset="50%" stop-color="#ff44cc"/><stop offset="75%" stop-color="#8844ff"/><stop offset="100%" stop-color="#00aaff"/>
+          </linearGradient>
+          <linearGradient id="wt" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/><stop offset="40%" stop-color="#eeddff"/>
+            <stop offset="70%" stop-color="#ff88dd"/><stop offset="100%" stop-color="#ff44bb"/>
+          </linearGradient>
+          <filter id="wnf" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="wtf" x="-10%" y="-20%" width="120%" height="140%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="wig" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <clipPath id="wfc"><circle cx="240" cy="240" r="214"/></clipPath>
+          <linearGradient id="wsg" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1a1e26"/><stop offset="50%" stop-color="#2a3040"/><stop offset="100%" stop-color="#1a1e26"/>
+          </linearGradient>
+        </defs>
+        <rect x="186" y="0" width="108" height="42" rx="14" fill="url(#wsg)"/>
+        <rect x="186" y="438" width="108" height="42" rx="14" fill="url(#wsg)"/>
+        <circle cx="240" cy="240" r="236" fill="url(#wb)"/>
+        <circle cx="240" cy="240" r="234" fill="none" stroke="#ffffff0a" stroke-width="1"/>
+        <circle cx="240" cy="240" r="230" fill="none" stroke="#00000066" stroke-width="3"/>
+        <rect x="476" y="210" width="14" height="44" rx="7" fill="#1e2230" stroke="#ffffff0a" stroke-width="1"/>
+        <circle cx="240" cy="240" r="218" fill="url(#wf)"/>
+        <circle cx="240" cy="240" r="208" fill="none" stroke="url(#wnr)" stroke-width="3" opacity=".6" style="animation:ringpulse 3s ease-in-out infinite"/>
+        <g style="transform-origin:240px 240px;animation:ringspin 8s linear infinite">
+          <circle cx="240" cy="240" r="208" fill="none" stroke="url(#wnr)" stroke-width="6" stroke-dasharray="120 980" filter="url(#wnf)" opacity=".9"/>
+        </g>
+        <g style="transform-origin:240px 240px;animation:ringspin 12s linear infinite reverse">
+          <circle cx="240" cy="240" r="208" fill="none" stroke="#ff44cc" stroke-width="4" stroke-dasharray="60 1040" stroke-dashoffset="400" filter="url(#wnf)" opacity=".7"/>
+        </g>
+        <g clip-path="url(#wfc)">
+          <circle cx="118" cy="126" r="16" fill="none" stroke="#ffcc00" stroke-width="2.5" filter="url(#wig)"/>
+          <g stroke="#ffcc00" stroke-width="2" stroke-linecap="round" filter="url(#wig)">
+            <line x1="118" y1="102" x2="118" y2="97"/><line x1="118" y1="155" x2="118" y2="150"/>
+            <line x1="94" y1="126" x2="89" y2="126"/><line x1="147" y1="126" x2="142" y2="126"/>
+            <line x1="101" y1="109" x2="97" y2="105"/><line x1="135" y1="143" x2="139" y2="147"/>
+            <line x1="135" y1="109" x2="139" y2="105"/><line x1="101" y1="143" x2="97" y2="147"/>
+          </g>
+          <text x="148" y="118" font-family="'DM Mono',monospace" font-size="20" font-weight="500" fill="#ffcc00">28°</text>
+          <text x="148" y="136" font-family="'DM Mono',monospace" font-size="11" fill="#ffcc0088">SUNNY</text>
+          <text x="148" y="150" font-family="'DM Mono',monospace" font-size="10" fill="#ffcc0066">QC · AUS</text>
+          <g style="animation:jog 1s ease-in-out infinite;transform-origin:346px 126px" filter="url(#wig)">
+            <circle cx="346" cy="104" r="9" fill="#e0e8ff"/>
+            <path d="M346,113 Q341,120 339,130 Q344,132 349,130 Q352,121 346,113Z" fill="#e0e8ff"/>
+            <path d="M342,117 Q334,114 331,119" fill="none" stroke="#e0e8ff" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M350,117 Q358,112 362,115" fill="none" stroke="#e0e8ff" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M341,130 Q336,139 338,147 Q341,147 343,146 Q342,138 344,133Z" fill="#e0e8ff"/>
+            <path d="M347,130 Q352,137 354,144 Q357,143 357,141 Q353,135 349,128Z" fill="#e0e8ff"/>
+          </g>
+          <text x="370" y="125" font-family="'DM Mono',monospace" font-size="20" font-weight="500" fill="#e0e8ff">4,200</text>
+          <text x="370" y="143" font-family="'DM Mono',monospace" font-size="11" fill="#e0e8ff88">STEPS</text>
+          <text x="243" y="238" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow',sans-serif" font-weight="900" font-size="108" letter-spacing="-3" fill="#4420aa" opacity=".4">$42DAY</text>
+          <text x="240" y="235" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow',sans-serif" font-weight="900" font-size="108" letter-spacing="-3" fill="url(#wt)" filter="url(#wtf)" style="animation:tickerbreathe 4s ease-in-out infinite">$42DAY</text>
+          <text x="240" y="298" text-anchor="middle" font-family="'Cinzel',serif" font-size="14" fill="#aaaacc" letter-spacing="5" style="animation:subtitlefade 5s ease-in-out infinite">SOMEDAY IS TODAY</text>
+          <g style="animation:heartbeat 1.4s ease-in-out infinite;transform-origin:118px 365px" filter="url(#wig)">
+            <path d="M118,382 C118,382 96,366 96,353 C96,346 101,340 109,340 C113,340 116,343 118,346 C120,343 123,340 127,340 C135,340 140,346 140,353 C140,366 118,382 118,382Z" fill="#ff3366"/>
+          </g>
+          <text x="152" y="360" font-family="'DM Mono',monospace" font-size="20" font-weight="500" fill="#ff3366" style="animation:pricetick 3s ease-in-out infinite">72</text>
+          <text x="152" y="378" font-family="'DM Mono',monospace" font-size="12" fill="#ff336677">BPM</text>
+          <g stroke="#9945ff" stroke-width="3" stroke-linecap="round" filter="url(#wig)">
+            <line x1="310" y1="346" x2="334" y2="346"/>
+            <line x1="306" y1="360" x2="338" y2="360"/>
+            <line x1="310" y1="374" x2="334" y2="374"/>
+          </g>
+          <text x="348" y="355" font-family="'DM Mono',monospace" font-size="18" font-weight="500" fill="#9945ff">SOL</text>
+          <text x="348" y="373" font-family="'DM Mono',monospace" font-size="15" fill="#9945ffaa">$142</text>
+          <text x="340" y="390" font-family="'DM Mono',monospace" font-size="12" fill="#00cc4499" style="animation:pricetick 2.5s ease-in-out infinite">▲ 4.2%</text>
+        </g>
+        <path d="M 100,110 A 148,148 0 0,1 380,110" fill="none" stroke="#ffffff0a" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TRANSITION ═══ -->
+<section id="transition">
+  <div class="stars" id="starField"></div>
+  <div class="light-beam top"></div>
+  <div class="light-beam bottom"></div>
+  <div class="trans-content">
+    <p class="trans-eye">The Decision Moment · $42DAY · Solana</p>
+    <h2 class="trans-main">
+      <span class="trans-ghost">Stop waiting for</span>
+      <span class="trans-big">SOMEDAY</span>
+      <span class="trans-ghost" style="margin-top:8px;font-size:.28em;letter-spacing:20px;">IS</span>
+      <span class="trans-big">TODAY</span>
+      <span class="trans-ticker">$42DAY</span>
+    </h2>
+    <p class="trans-sub">The meme that never quits</p>
+  </div>
+</section>
+
+<!-- ═══ DARK WORLD ═══ -->
+<div class="dark-world">
+  <div class="grid-bg"></div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="ds ds-center reveal">
+    <span class="d-eye">How It Works</span>
+    <h2 class="d-title">Three steps. <span class="a">Zero effort.</span></h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-t">Invest</div><p class="step-b">Invest in $42DAY on Pump.fun in 60 seconds. 30% lands in your wallet immediately — liquid and tradeable right now.</p></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t">Auto Earn</div><p class="step-b">70% enters the Auto Earn vault automatically. No setup. No UI interaction. It just starts working for you.</p></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t">Collect</div><p class="step-b">Collect monthly rewards. Watch your position unlock at 3, 6 and 12 months. TODAY never stops paying you.</p></div>
+    </div>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- UNLOCK -->
+  <section id="unlock" class="ds ds-center reveal">
+    <span class="d-eye">Progressive Unlock</span>
+    <h2 class="d-title">Your <span class="a">unlock ladder.</span></h2>
+    <p class="d-body" style="margin:0 auto;text-align:center">Every investment unlocks progressively. The longer you hold the more you earn. Patience is always rewarded.</p>
+    <div class="milestones">
+      <div class="ms"><div class="ms-mo">3 Months</div><div class="ms-pct">30%</div><div class="ms-lbl">First unlock. Early reward for patience.</div></div>
+      <div class="ms"><div class="ms-mo">6 Months</div><div class="ms-pct">60%</div><div class="ms-lbl">Halfway. Rewards compounding. Position growing.</div></div>
+      <div class="ms"><div class="ms-mo">12 Months</div><div class="ms-pct">100%</div><div class="ms-lbl">Full unlock. Everything is yours. Someday arrived.</div></div>
+    </div>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- AUTO EARN SPLIT -->
+  <section id="autoearn" class="ds reveal">
+    <div class="ae-vis">
+      <svg class="ae-donut" viewBox="0 0 280 280">
+        <defs>
+          <linearGradient id="s70" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8844ff"/><stop offset="100%" stop-color="#ff44cc"/>
+          </linearGradient>
+        </defs>
+        <circle cx="140" cy="140" r="110" fill="none" stroke="url(#s70)" stroke-width="28" stroke-dasharray="483 690" stroke-dashoffset="173" stroke-linecap="round" style="filter:drop-shadow(0 0 12px #8844ff88)"/>
+        <circle cx="140" cy="140" r="110" fill="none" stroke="#00aaff" stroke-width="28" stroke-dasharray="207 690" stroke-dashoffset="-310" stroke-linecap="round" style="filter:drop-shadow(0 0 8px #00aaff66)"/>
+        <circle cx="140" cy="140" r="82" fill="#080a12"/>
+        <text x="140" y="132" text-anchor="middle" font-family="'Barlow',sans-serif" font-weight="900" font-size="32" fill="url(#wt)">70/30</text>
+        <text x="140" y="152" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="3" fill="#444466">SPLIT</text>
+      </svg>
+    </div>
+    <div>
+      <span class="d-eye">The Auto Earn Split</span>
+      <h2 class="d-title">Built to <span class="a">compound.</span></h2>
+      <p class="d-body" style="margin-bottom:28px">When you invest in TODAY your position automatically splits. 30% is immediately liquid. 70% enters the Auto Earn vault generating monthly rewards around the clock.</p>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#8844ff,#ff44cc);flex-shrink:0"></div><span style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:2px;color:#aaaacc">70% — Auto Earn Vault · Monthly Rewards · Progressive Unlock</span></div>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:12px;height:12px;border-radius:50%;background:#00aaff;flex-shrink:0"></div><span style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:2px;color:#aaaacc">30% — Liquid Immediately · Tradeable · Yours Now</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- SECURITY -->
+  <section id="security" class="ds ds-center reveal">
+    <span class="d-eye">Built For Security</span>
+    <h2 class="d-title">Your investment is <span class="a">protected.</span></h2>
+    <div class="sec-grid">
+      <div class="sec-card"><span class="sec-icon">🔒</span><div class="sec-title">Auto Earn Vault</div><p class="sec-body">Your 70% sits in an immutable vault contract. No admin access. No rug. Funds released only on schedule.</p></div>
+      <div class="sec-card"><span class="sec-icon">📊</span><div class="sec-title">Clean Contract</div><p class="sec-body">TODAY passes honeypot detection cleanly. Selling is always technically possible — locked tokens simply aren't in tradeable balance yet.</p></div>
+      <div class="sec-card"><span class="sec-icon">⚡</span><div class="sec-title">Solana Native</div><p class="sec-body">Built on Solana for speed, low fees and the most active meme coin ecosystem in crypto. Every reward costs fractions of a cent.</p></div>
+    </div>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- BOT -->
+  <section id="bot" class="ds reveal">
+    <div class="bot-card">
+      <h2 class="bot-hl">My Bot Bought <span class="a">TODAY.</span></h2>
+      <p class="bot-body">Your bot found something it couldn't exit. That's not a bug. That's TODAY working exactly as designed. Your investment is safe. It's Auto Earning. It's yours to collect as it unlocks.</p>
+      <p class="bot-body">The question isn't whether to panic. The question is — do you want to add more while the price is still here?</p>
+      <div class="bot-grid">
+        <div class="bot-item"><span class="bot-ico">✅</span><div class="bot-lbl">Funds Are Safe</div></div>
+        <div class="bot-item"><span class="bot-ico">📈</span><div class="bot-lbl">Auto Earning Now</div></div>
+        <div class="bot-item"><span class="bot-ico">🔓</span><div class="bot-lbl">Unlocks On Schedule</div></div>
+      </div>
+      <a href="https://t.me/today42day" target="_blank" class="btn-primary">Join The Community</a>
+    </div>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- CALCULATOR -->
+  <section id="calculator" class="ds ds-center reveal" style="max-width:700px">
+    <span class="d-eye">Reward Calculator</span>
+    <h2 class="d-title">See your <span class="a">TODAY returns.</span></h2>
+    <p class="d-body" style="margin:0 auto;text-align:center">Enter your investment and see projected Auto Earn rewards over 12 months.</p>
+    <div class="calc-box">
+      <label class="calc-lbl" for="investAmount">Your Investment (USD)</label>
+      <div class="calc-wrap">
+        <span>$</span>
+        <input type="number" id="investAmount" class="calc-in" placeholder="1000" min="1" oninput="calcRewards()"/>
+      </div>
+      <div class="calc-row">
+        <div class="calc-item"><div class="calc-val" id="rliquid">—</div><div class="calc-lbl2">Liquid NOW</div></div>
+        <div class="calc-item"><div class="calc-val" id="rmonthly">—</div><div class="calc-lbl2">Est. Monthly</div></div>
+        <div class="calc-item"><div class="calc-val" id="rtotal">—</div><div class="calc-lbl2">Total at 12mo</div></div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-item"><div class="calc-val" id="r3m">—</div><div class="calc-lbl2">3 Month Unlock</div></div>
+        <div class="calc-item"><div class="calc-val" id="r6m">—</div><div class="calc-lbl2">6 Month Unlock</div></div>
+        <div class="calc-item"><div class="calc-val" id="r12m">—</div><div class="calc-lbl2">12 Month Full</div></div>
+      </div>
+      <p class="calc-note">* Projections are estimates. Not financial advice.</p>
+    </div>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- TOKENOMICS -->
+  <section id="tokenomics" class="ds ds-center reveal">
+    <span class="d-eye">Tokenomics</span>
+    <h2 class="d-title">Built for <span class="a">longevity.</span></h2>
+    <div class="tok-grid">
+      <div class="tok"><div class="tok-pct">70%</div><div class="tok-name">Liquidity Pool</div><div class="tok-amt">700,000,000 $42DAY</div></div>
+      <div class="tok"><div class="tok-pct">20%</div><div class="tok-name">Rewards Pool</div><div class="tok-amt">200,000,000 $42DAY</div></div>
+      <div class="tok"><div class="tok-pct">5%</div><div class="tok-name">Team</div><div class="tok-amt">50,000,000 $42DAY</div></div>
+      <div class="tok"><div class="tok-pct">5%</div><div class="tok-name">Marketing</div><div class="tok-amt">50,000,000 $42DAY</div></div>
+    </div>
+    <p class="tok-sup">Total Supply · <strong>1,000,000,000 $42DAY</strong> · Chain: <strong>Solana</strong></p>
+  </section>
+
+  <div class="dv"></div>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="ds ds-center reveal">
+    <span class="d-eye">Roadmap</span>
+    <h2 class="d-title">The <span class="a">path forward.</span></h2>
+    <div class="rm-track">
+      <div class="rm-item"><div class="rm-dot done">✓</div><div class="rm-ph">Phase 1</div><div class="rm-title">Foundation</div><ul class="rm-items"><li>Concept & tokenomics</li><li>Identity & branding</li><li>X & Telegram live</li><li>Community seeding</li></ul></div>
+      <div class="rm-item"><div class="rm-dot active">NOW</div><div class="rm-ph">Phase 2</div><div class="rm-title">Launch</div><ul class="rm-items"><li>Pump.fun launch</li><li>Contract deployment</li><li>Auto Earn activation</li><li>Raydium graduation</li></ul></div>
+      <div class="rm-item"><div class="rm-dot pending">3</div><div class="rm-ph">Phase 3</div><div class="rm-title">Growth</div><ul class="rm-items"><li>First reward drop</li><li>Wallet dashboard</li><li>Influencer outreach</li><li>CEX listings</li></ul></div>
+      <div class="rm-item"><div class="rm-dot pending">4</div><div class="rm-ph">Phase 4</div><div class="rm-title">Expansion</div><ul class="rm-items"><li>V2 mechanics</li><li>Cross-chain bridge</li><li>DAO governance</li><li>Ecosystem fund</li></ul></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft-inner">
+      <div>
+        <span class="ft-logo">TODAY · $42DAY</span>
+        <p class="ft-p">The meme that never quits. Invest once. Auto Earn forever. Someday is TODAY.</p>
+        <div class="ft-socials">
+          <a href="https://x.com/42daycoin" target="_blank" class="ft-soc">𝕏</a>
+          <a href="https://t.me/today42day" target="_blank" class="ft-soc">TG</a>
+          <a href="https://pump.fun" target="_blank" class="ft-soc">↗</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#liberation">Home</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#unlock">Unlock Timeline</a></li>
+          <li><a href="#tokenomics">Tokenomics</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://x.com/42daycoin" target="_blank">Twitter / X</a></li>
+          <li><a href="https://t.me/today42day" target="_blank">Telegram</a></li>
+          <li><a href="https://pump.fun" target="_blank">Pump.fun</a></li>
+          <li><a href="#bot">My Bot Bought TODAY</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-cr">© 2025 TODAY · $42DAY · Built on Solana</p>
+      <p class="ft-disc">$42DAY is a meme coin for entertainment purposes. Crypto investments carry risk. This is not financial advice. Always invest only what you can afford to lose.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// Nav theme switch
+const nav = document.getElementById('mainNav');
+const trans = document.getElementById('transition');
+window.addEventListener('scroll', () => {
+  const tt = trans.getBoundingClientRect().top;
+  nav.classList.toggle('dark', tt < window.innerHeight * 0.5);
+});
+
+// Stars
+const sf = document.getElementById('starField');
+for (let i = 0; i < 150; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${Math.random()*2+1}px;height:${s.style.width};animation-delay:${Math.random()*4}s;animation-duration:${Math.random()*3+2}s;opacity:${Math.random()*.8+.2}`;
+  sf.appendChild(s);
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+
+// Calculator
+function calcRewards() {
+  const amt = parseFloat(document.getElementById('investAmount').value) || 0;
+  const liquid = amt * .3, vault = amt * .7, monthly = vault * .05;
+  const fmt = v => v > 0 ? '$' + v.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : '—';
+  document.getElementById('rliquid').textContent  = fmt(liquid);
+  document.getElementById('rmonthly').textContent = fmt(monthly);
+  document.getElementById('r3m').textContent      = fmt(liquid + vault*.3);
+  document.getElementById('r6m').textContent      = fmt(liquid + vault*.6);
+  document.getElementById('r12m').textContent     = fmt(amt + monthly*12);
+  document.getElementById('rtotal').textContent   = fmt(amt + monthly*12);
+}
+</script>
+</body>
+</html>
