@@ -340,23 +340,65 @@ footer{background:var(--navy);padding:80px 40px 40px;}
       </div>
     </div>
     <div class="watch-lib" style="opacity:1!important;visibility:visible!important;">
-      <svg width="320" height="320" viewBox="0 0 480 480" style="overflow:visible">
-        <rect x="186" y="0" width="108" height="42" rx="14" fill="url(#wsg)"/>
-        <rect x="186" y="438" width="108" height="42" rx="14" fill="url(#wsg)"/>
-        <circle cx="240" cy="240" r="236" fill="url(#wb)"/>
+      <svg width="380" height="380" viewBox="0 0 480 480" style="overflow:visible;opacity:1;display:block;">
+      <defs>
+        <radialGradient id="wf2" cx="48%" cy="42%" r="55%">
+          <stop offset="0%" stop-color="#141820"/>
+          <stop offset="50%" stop-color="#0e1218"/>
+          <stop offset="100%" stop-color="#080a0e"/>
+        </radialGradient>
+        <linearGradient id="wb2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#2a2e38"/>
+          <stop offset="100%" stop-color="#0c0e14"/>
+        </linearGradient>
+        <linearGradient id="wnr2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00aaff"/>
+          <stop offset="25%" stop-color="#8844ff"/>
+          <stop offset="50%" stop-color="#ff44cc"/>
+          <stop offset="75%" stop-color="#8844ff"/>
+          <stop offset="100%" stop-color="#00aaff"/>
+        </linearGradient>
+        <linearGradient id="wt2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="40%" stop-color="#eeddff"/>
+          <stop offset="70%" stop-color="#ff88dd"/>
+          <stop offset="100%" stop-color="#ff44bb"/>
+        </linearGradient>
+        <linearGradient id="wsg2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a1e26"/>
+          <stop offset="50%" stop-color="#2a3040"/>
+          <stop offset="100%" stop-color="#1a1e26"/>
+        </linearGradient>
+        <filter id="wnf2" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="wtf2" x="-10%" y="-20%" width="120%" height="140%">
+          <feGaussianBlur stdDeviation="8" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="wig2" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <clipPath id="wfc2"><circle cx="240" cy="240" r="214"/></clipPath>
+      </defs>
+        <rect x="186" y="0" width="108" height="42" rx="14" fill="url(#wsg2)"/>
+        <rect x="186" y="438" width="108" height="42" rx="14" fill="url(#wsg2)"/>
+        <circle cx="240" cy="240" r="236" fill="url(#wb2)"/>
         <circle cx="240" cy="240" r="230" fill="none" stroke="#00000066" stroke-width="3"/>
         <rect x="476" y="210" width="14" height="44" rx="7" fill="#1e2230"/>
-        <circle cx="240" cy="240" r="218" fill="url(#wf)"/>
-        <circle cx="240" cy="240" r="208" fill="none" stroke="url(#wnr)" stroke-width="3" opacity=".7" style="animation:ringpulse 3s ease-in-out infinite"/>
-        <g style="transform-origin:240px 240px;animation:ringspin 8s linear infinite"><circle cx="240" cy="240" r="208" fill="none" stroke="url(#wnr)" stroke-width="6" stroke-dasharray="120 980" filter="url(#wnf)" opacity=".9"/></g>
-        <g style="transform-origin:240px 240px;animation:ringspin 12s linear infinite reverse"><circle cx="240" cy="240" r="208" fill="none" stroke="#ff44cc" stroke-width="4" stroke-dasharray="60 1040" stroke-dashoffset="400" filter="url(#wnf)" opacity=".7"/></g>
-        <g clip-path="url(#wfc)">
-          <circle cx="118" cy="126" r="16" fill="none" stroke="#ffcc00" stroke-width="2.5" filter="url(#wig)"/>
-          <g stroke="#ffcc00" stroke-width="2" stroke-linecap="round" filter="url(#wig)"><line x1="118" y1="102" x2="118" y2="97"/><line x1="118" y1="155" x2="118" y2="150"/><line x1="94" y1="126" x2="89" y2="126"/><line x1="147" y1="126" x2="142" y2="126"/><line x1="101" y1="109" x2="97" y2="105"/><line x1="135" y1="143" x2="139" y2="147"/><line x1="135" y1="109" x2="139" y2="105"/><line x1="101" y1="143" x2="97" y2="147"/></g>
+        <circle cx="240" cy="240" r="218" fill="url(#wf2)"/>
+        <circle cx="240" cy="240" r="208" fill="none" stroke="url(#wnr2)" stroke-width="3" opacity=".7" style="animation:ringpulse 3s ease-in-out infinite"/>
+        <g style="transform-origin:240px 240px;animation:ringspin 8s linear infinite"><circle cx="240" cy="240" r="208" fill="none" stroke="url(#wnr2)" stroke-width="6" stroke-dasharray="120 980" filter="url(#wnf2)" opacity=".9"/></g>
+        <g style="transform-origin:240px 240px;animation:ringspin 12s linear infinite reverse"><circle cx="240" cy="240" r="208" fill="none" stroke="#ff44cc" stroke-width="4" stroke-dasharray="60 1040" stroke-dashoffset="400" filter="url(#wnf2)" opacity=".7"/></g>
+        <g clip-path="url(#wfc2)">
+          <circle cx="118" cy="126" r="16" fill="none" stroke="#ffcc00" stroke-width="2.5" filter="url(#wig2)"/>
+          <g stroke="#ffcc00" stroke-width="2" stroke-linecap="round" filter="url(#wig2)"><line x1="118" y1="102" x2="118" y2="97"/><line x1="118" y1="155" x2="118" y2="150"/><line x1="94" y1="126" x2="89" y2="126"/><line x1="147" y1="126" x2="142" y2="126"/><line x1="101" y1="109" x2="97" y2="105"/><line x1="135" y1="143" x2="139" y2="147"/><line x1="135" y1="109" x2="139" y2="105"/><line x1="101" y1="143" x2="97" y2="147"/></g>
           <text x="148" y="118" font-family="'DM Mono',monospace" font-size="20" font-weight="500" fill="#ffcc00">28°</text>
           <text x="148" y="136" font-family="'DM Mono',monospace" font-size="11" fill="#ffcc0088">SUNNY</text>
           <text x="148" y="150" font-family="'DM Mono',monospace" font-size="10" fill="#ffcc0066">QC · AUS</text>
-          <g style="animation:jog 1s ease-in-out infinite;transform-origin:346px 126px" filter="url(#wig)">
+          <g style="animation:jog 1s ease-in-out infinite;transform-origin:346px 126px" filter="url(#wig2)">
             <circle cx="346" cy="104" r="9" fill="#e0e8ff"/>
             <path d="M346,113 Q341,120 339,130 Q344,132 349,130 Q352,121 346,113Z" fill="#e0e8ff"/>
             <path d="M342,117 Q334,114 331,119" fill="none" stroke="#e0e8ff" stroke-width="3.5" stroke-linecap="round"/>
@@ -367,12 +409,12 @@ footer{background:var(--navy);padding:80px 40px 40px;}
           <text x="370" y="125" font-family="'DM Mono',monospace" font-size="20" font-weight="500" fill="#e0e8ff">4,200</text>
           <text x="370" y="143" font-family="'DM Mono',monospace" font-size="11" fill="#e0e8ff88">STEPS</text>
           <text x="243" y="238" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow',sans-serif" font-weight="900" font-size="108" letter-spacing="-3" fill="#4420aa" opacity=".4">$42DAY</text>
-          <text x="240" y="235" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow',sans-serif" font-weight="900" font-size="108" letter-spacing="-3" fill="url(#wt)" filter="url(#wtf)" style="animation:tickerbreathe 4s ease-in-out infinite">$42DAY</text>
+          <text x="240" y="235" text-anchor="middle" dominant-baseline="middle" font-family="'Barlow',sans-serif" font-weight="900" font-size="108" letter-spacing="-3" fill="url(#wt2)" filter="url(#wtf2)" style="animation:tickerbreathe 4s ease-in-out infinite">$42DAY</text>
           <text x="240" y="298" text-anchor="middle" font-family="'Cinzel',serif" font-size="14" fill="#aaaacc" letter-spacing="5" style="animation:subtitlefade 5s ease-in-out infinite">SOMEDAY IS TODAY</text>
-          <g style="animation:heartbeat 1.4s ease-in-out infinite;transform-origin:118px 365px" filter="url(#wig)"><path d="M118,382 C118,382 96,366 96,353 C96,346 101,340 109,340 C113,340 116,343 118,346 C120,343 123,340 127,340 C135,340 140,346 140,353 C140,366 118,382 118,382Z" fill="#ff3366"/></g>
+          <g style="animation:heartbeat 1.4s ease-in-out infinite;transform-origin:118px 365px" filter="url(#wig2)"><path d="M118,382 C118,382 96,366 96,353 C96,346 101,340 109,340 C113,340 116,343 118,346 C120,343 123,340 127,340 C135,340 140,346 140,353 C140,366 118,382 118,382Z" fill="#ff3366"/></g>
           <text x="152" y="360" font-family="'DM Mono',monospace" font-size="20" font-weight="500" fill="#ff3366" style="animation:pricetick 3s ease-in-out infinite">72</text>
           <text x="152" y="378" font-family="'DM Mono',monospace" font-size="12" fill="#ff336677">BPM</text>
-          <g stroke="#9945ff" stroke-width="3" stroke-linecap="round" filter="url(#wig)"><line x1="310" y1="346" x2="334" y2="346"/><line x1="306" y1="360" x2="338" y2="360"/><line x1="310" y1="374" x2="334" y2="374"/></g>
+          <g stroke="#9945ff" stroke-width="3" stroke-linecap="round" filter="url(#wig2)"><line x1="310" y1="346" x2="334" y2="346"/><line x1="306" y1="360" x2="338" y2="360"/><line x1="310" y1="374" x2="334" y2="374"/></g>
           <text x="348" y="355" font-family="'DM Mono',monospace" font-size="18" font-weight="500" fill="#9945ff">SOL</text>
           <text x="348" y="373" font-family="'DM Mono',monospace" font-size="15" fill="#9945ffaa">$142</text>
           <text x="340" y="390" font-family="'DM Mono',monospace" font-size="12" fill="#00cc4499" style="animation:pricetick 2.5s ease-in-out infinite">▲ 4.2%</text>
